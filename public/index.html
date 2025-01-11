@@ -11,7 +11,9 @@
     <!-- Bootstrap + Steller main styles -->
 	<link rel="stylesheet" href="assets/css/steller.css">
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<!-- body data-spy="scroll" data-target=".navbar" data-offset="40" id="home" -->
+<body data-new-gr-c-s-check-loaded="14.1199.0" data-gr-ext-installed="">
+
 
     <!-- Page navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" data-spy="affix" data-offset-top="0">
@@ -22,6 +24,7 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <h4>Mahak Agrawal</h4>
                 <ul class="navbar-nav ml-auto align-items-center">
                     <li class="nav-item">
                         <a class="nav-link" href="#home">Home</a>
@@ -29,6 +32,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
                     </li>                   
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#portfolio">Portfolio</a>
                     </li>
@@ -42,18 +48,24 @@
             </div>
         </div>          
     </nav>
-    <!-- End of page navigation -->
+    <!-- End of page navibation -->
 
     <!-- Page Header -->
     <header class="header" id="home">
+        <div class='box'>
+            <div class='wave -one'></div>
+            <div class='wave -two'></div>
+            <div class='wave -three'></div>
+        </div>
+          
         <div class="container">
             <div class="infos">
                 <h6 class="subtitle">Hello, I'm</h6>
-                <h6 class="title">Mahak Agrawal</h6>
-                <p>Aspiring Software Engineer</p>
+                <h6 class="title" id="name-animation">Mahak Agrawal</h6>
+                <p id="role-animation">Aspiring Software Engineer</p>
 
                 <div class="buttons pt-3">
-                    <button class="btn btn-primary rounded" onclick="location.replace('https://forms.gle/Hswr6wvvj27eCw1e7')">HIRE ME</button>
+                    <button class="btn btn-primary rounded" onclick="window.open('https://forms.gle/Hswr6wvvj27eCw1e7')">HIRE ME</button>
                     <button class="btn btn-dark rounded" onclick="document.location='resume.pdf'">DOWNLOAD CV</button>
                 </div>      
 
@@ -62,31 +74,55 @@
                     <a class="social-item" href="https://github.com/Mahak-Agrawal-304"><i class="ti-github"></i></a>
                     <a class="social-item" href="mailto:mahakagrawal304@gmail.com"><i class="ti-email"></i></a>
                 </div>
-            </div>              
-            <div class="col-lg-6 col-12">
+            </div>    
+            <!--div class="col-lg-6 col-12">
                 <div class="hero-image" data-aos="fade-up" data-aos-delay="300">
-                    <div class="Tilt" style="height: 600px; width: 600px; will-change: transform; transition: 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99); transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);"><div class="img__container"><img src="assets/imgs/working-girl.png" class="img-fluid" alt="working girl"></div>
+                    <div class="Tilt"><div class="img__container"><img src="assets/imgs/working-girl.png" class="img-fluid" alt="working girl"></div>
                     </div>
                 </div>
-              </div>
-
-        </div>  
+            </div-->
+        </div>
 
         <!-- Header-widget -->
-        <div class="widget">
-            <div class="widget-item">
-                <h2>110+</h2>
-                <p>Leetcode questions</p>
-            </div>
-            <div class="widget-item">
-                <h2>4+</h2>
-                <p>Hackathons Completed</p>
-            </div>
-            <div class="widget-item">
-                <h2>150+</h2>
-                <p>Hackerrank questions</p>
-            </div>
-        </div>
+<div class="widget">
+    <div class="widget-item">
+        <h2 id="practice-count" class="count-up-text">0 +</h2>
+        <p>Practice questions</p>
+    </div>
+    <div class="widget-item">
+        <h2 id="projects-count" class="count-up-text">0 +</h2>
+        <p>Projects Completed</p>
+    </div>
+</div>
+
+<script>
+  // CountUp function
+  function countUp(from, to, duration, elementId) {
+      const element = document.getElementById(elementId);
+      const startTime = performance.now();
+      const range = to - from;
+
+      function updateCounter(currentTime) {
+          const elapsedTime = currentTime - startTime;
+          const progress = Math.min(elapsedTime / (duration * 5000), 1); // Normalize to [0, 1]
+          const value = Math.floor(from + progress * range);
+          element.textContent = value.toLocaleString()+'+'; // Add comma separators
+
+          if (progress < 1) {
+              requestAnimationFrame(updateCounter);
+          }
+      }
+
+      requestAnimationFrame(updateCounter);
+  }
+
+  // Initialize the counters for the widget
+  document.addEventListener("DOMContentLoaded", () => {
+      countUp(0, 400, 2, "practice-count"); // 400+ Practice questions
+      countUp(0, 4, 2, "projects-count");  // 4+ Projects Completed
+  });
+</script>
+
     </header>
     <!-- End of Page Header -->
     
@@ -100,8 +136,8 @@
                 <div class="pl-md-4 col-md-9">
                     <h6 class="title">Mahak Agrawal</h6>
                     <p class="subtitle">B.Tech Student | Aspiring Software Engineer</p>
-                    <p>As a computer science student at JECRC Foundation, I am passionate about learning and applying various programming languages and technologies, such as Python, C++, and MySQL. I earned multiple certifications in these domains, and have practiced 300+ questions on Hackerrank and Leetcode. 
-                        Additionally, I have gained valuable experience through hackathons, and personal projects that have allowed me to develop my technical skills and learn how to work in a team. 
+                    <p>As a computer science student at JECRC Foundation, I am passionate about learning and applying various programming languages and technologies, such as Python, C++, and MySQL. I earned multiple certifications in these domains, and have practiced 400+ questions on several coding platforms. 
+                        Additionally, I have gained valuable experience through open source contributions, hackathons, and personal projects that have allowed me to develop my technical skills and learn how to work in a team. 
                         As a result, I am confident in my ability to contribute to any project and deliver results that exceed expectations.
                     </p>
                     <p>I am excited about the possibilities that the field of Computer Science offers and look forward to continuing to learn and grow as a professional in this dynamic industry.</p>
@@ -114,26 +150,30 @@
             <h5 class="section mp-1"></h5>
             <h6 class="section-title mb-4">Education</h6>
 
+              
+
             <div class="row justify-content-center">
                 <div class="col-sm-6 col-md-3 mb-4">
                     <div class="custom-card card border">
-                        <div class="card-body">
-                            <h5>JECRC Foundation,<br> Jaipur</h5>
-                            <p>Computer Science and Engineering</p>
-                            <p>2022-2026</p>
-                            <p>CGPA: 9.45</p>
+                        <div class="card-body text-sm-center" style="margin-left: 30px; margin-right: 20px;" >
+
+                                    <h5>JECRC Foundation,<br> Jaipur</h5>
+                                    <p>Computer Science and Engineering</p>
+                                    <p>2022-2026</p>
+                                    <p>CGPA: 9.01</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="col-sm-6 col-md-3 mb-4">
                     <div class="custom-card card border">
-                        <div class="card-body">
+                        <div class="card-body text-sm-center" style="margin-left: 30px; margin-right: 20px" >
+                           
                             <h5>Rukmani Birla <br>Modern High School,<br> Jaipur</h5>
                             <p>2017-2022</p>
                             <p>12th Standard: 94.2%</p>
                             <p>10th Standard: 91.6%</p>
-                        </div>
+                        </div>   
                     </div>
                 </div>
                 
@@ -142,8 +182,33 @@
     </section>
     <!-- End of Section -->
 
+    <section id="experience" class="section mt-3">
     <div class="container text-center">
         <h6 class="section-title mb-4">Experience</h6>
+        <p class="mb-5 pb-4">Participating in these programs underscored my passion for developing technical tools, prompting a desire to leverage acquired knowledge within a software engineering team.</p>
+        <div class="col ">
+            <div class="col-sm-14  mb-4">
+                <div class="custom-card card border">
+                    <div class="card-body text-sm-left" style="margin-left: 30px; margin-right: 20px" >
+                        
+                        <h5>GSSOC'24 Ext.</h5>
+                        <p>Open Source Contributor</p>
+                        <p>I enhanced features and functionality of multiple projects, leading to a 15% increase in their performance
+                            I improved onboarding and user engagement by 25% by updating 10+ documentations.
+                            I closed issues and resolved critical bugs, improving project stability and reducing error reports by 10% of the projects<br></p>                            
+                        </div>
+                    </div>  
+                </div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </div>
+
+
+    <div class="container text-center">
+        <h6 class="section-title mb-4">Extracurricular Activities</h6>
+
         <p class="mb-5 pb-4">Participating in these programs underscored my passion for developing technical tools, prompting a desire to leverage acquired knowledge within a software engineering team.</p>
         <div class="col ">
             <div class="col-sm-14  mb-4">
@@ -186,6 +251,7 @@
             </div>
         </div>
     </div>
+    </section>
 
 </section>
     <!-- Skills section -->
@@ -241,7 +307,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="img-wrapper">
-                        <img src="assets/imgs/folio-1.jpg" alt="">
+                        <img src="assets/imgs/folio-11.jpg" alt="">
                         <div class="overlay">
                             <div class="overlay-infos">
                                 <h5>Indic Language Support</h5>
@@ -249,15 +315,15 @@
                             </div>  
                         </div>
                     </div>
-                    <!-- <div class="img-wrapper">
-                        <img src="assets/imgs/folio-2.jpg" alt="">
+                    <div class="img-wrapper">
+                        <img src="assets/imgs/ddos1.jpg" alt="">
                         <div class="overlay">
                             <div class="overlay-infos">
-                                <h5>Currency Exchange Monitor</h5>
-                                <a href="https://github.com/Mahak-Agrawal-304/Currency_exchange_monitor"><i class="ti-link"></i></a>
+                                <h5>DDoS Attack Detection and Mitigation</h5>
+                                <a href="https://github.com/Mahak-Agrawal-304/DDoS-Attack-Detection-and-Mitigation"><i class="ti-link"></i></a>
                             </div>                              
                         </div>
-                    </div>                   -->
+                    </div>                   
                 </div>
                 <div class="col-sm-4">
                     <div class="img-wrapper">
@@ -459,5 +525,70 @@
     <!-- steller js -->
     <script src="assets/js/steller.js"></script>
 
+    <script>
+        // Decryption Animation
+        function decryptText(elementId, text, speed = 1, characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+') {
+          const element = document.getElementById(elementId);
+          const originalText = text.split('');
+          const revealedText = Array(originalText.length).fill(null); // Placeholder for revealed characters
+          let currentIteration = 0;
+      
+          // Function to generate a scrambled version of the text
+          const scrambleText = () => {
+            const scrambled = originalText.map((char, index) => {
+              if (revealedText[index] !== null) return revealedText[index]; // Keep revealed characters
+              return char === ' ' ? ' ' : characters[Math.floor(Math.random() * characters.length)];
+            });
+            element.textContent = scrambled.join('');
+          };
+      
+          // Main animation loop
+          const interval = setInterval(() => {
+            if (currentIteration >= originalText.length) {
+              clearInterval(interval);
+              element.textContent = text; // Ensure the final text is the original
+              return;
+            }
+      
+            // Reveal the next character
+            let nextIndex;
+            do {
+              nextIndex = currentIteration;
+            } while (revealedText[nextIndex] !== null && nextIndex < originalText.length);
+      
+            revealedText[nextIndex] = originalText[nextIndex]; // Mark character as revealed
+            scrambleText();
+      
+            currentIteration++;
+          }, speed);
+        }
+      
+        // Trigger the animations
+        document.addEventListener('DOMContentLoaded', () => {
+          decryptText('name-animation', 'Mahak Agrawal', 50);
+          decryptText('role-animation', 'Aspiring Software Engineer', 50);
+        });
+      </script>
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", () => {
+          const spotlightCards = document.querySelectorAll(".card-spotlight");
+      
+          spotlightCards.forEach((card) => {
+            card.addEventListener("mousemove", (e) => {
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+      
+              card.style.setProperty("--mouse-x", `${x}px`);
+              card.style.setProperty("--mouse-y", `${y}px`);
+      
+              const spotlightColor = card.getAttribute("data-spotlight-color") || "rgba(255, 255, 255, 0.25)";
+              card.style.setProperty("--spotlight-color", spotlightColor);
+            });
+          });
+        });
+      </script>
+      
 </body>
 </html>
